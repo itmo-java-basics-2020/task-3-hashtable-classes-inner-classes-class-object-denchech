@@ -78,7 +78,7 @@ public class HashTableTest {
         );
     }
 
-    private void invoke(Map<Object, Object> testInstance,
+    private void invoke(HashTable testInstance,
                         OperationPercentageProfile operationPercentageProfile,
                         KeysProvider keysProvider,
                         Supplier<?> valuesSupplier,
@@ -96,6 +96,7 @@ public class HashTableTest {
                     Assert.assertEquals(expectedPrevValue, actualPrevValue);
                     Assert.assertEquals(controlInstance.size(), testInstance.size());
                     Assert.assertEquals(value, testInstance.get(key));
+                    break;
                 }
                 case REMOVE: {
                     Object key = keysProvider.randomKey();
@@ -106,6 +107,7 @@ public class HashTableTest {
                     Assert.assertEquals(expectedPrevValue, actualPrevValue);
                     Assert.assertNull(testInstance.get(key));
                     Assert.assertEquals(controlInstance.size(), testInstance.size());
+                    break;
                 }
             }
         }
