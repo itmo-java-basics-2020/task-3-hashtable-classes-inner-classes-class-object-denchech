@@ -99,9 +99,8 @@ public class HashTable {
 
     private int getIndexByKey(Object key) {
         int hashKey = getHash(key);
-        Entry foundElement = elements[hashKey];
         while (deletedElements[hashKey]
-                || (foundElement != null && !foundElement.getKey().equals(key))
+                || ( elements[hashKey] != null && ! elements[hashKey].getKey().equals(key))
         ) {
             hashKey = (hashKey + PROBING_INTERVAL) % capacity;
         }
